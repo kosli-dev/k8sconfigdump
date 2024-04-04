@@ -1,0 +1,25 @@
+apiVersion: v1
+data:
+  competitive: "300"
+  cooperative: "60"
+  single_player: "20"
+kind: ConfigMap
+metadata:
+  annotations:
+    config.k8s.io/owning-inventory: gamestore_repo-sync
+    configmanagement.gke.io/managed: enabled
+    configmanagement.gke.io/source-path: config-sync-quickstart/multirepo/namespaces/gamestore/configmap-inventory.yaml
+    configmanagement.gke.io/token: 0a74028d913aca0da81096ec4dc411604db6a06b
+    configsync.gke.io/declared-fields: '{"f:data":{"f:competitive":{},"f:cooperative":{},"f:single_player":{}},"f:metadata":{"f:annotations":{"f:marketplace.com/comments":{}},"f:labels":{}}}'
+    configsync.gke.io/git-context: '{"repo":"https://github.com/GoogleCloudPlatform/anthos-config-management-samples","branch":"main","rev":"HEAD"}'
+    configsync.gke.io/manager: gamestore
+    configsync.gke.io/resource-id: _configmap_gamestore_store-inventory
+    marketplace.com/comments: What about chess?
+  creationTimestamp: "2024-03-29T22:55:41Z"
+  labels:
+    app.kubernetes.io/managed-by: configmanagement.gke.io
+    configsync.gke.io/declared-version: v1
+  name: store-inventory
+  namespace: gamestore
+  resourceVersion: "335496"
+  uid: f1751cad-bbc0-42bf-b279-cb27e63889b3
