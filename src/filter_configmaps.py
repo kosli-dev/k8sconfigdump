@@ -35,16 +35,53 @@ def remove_items(initial_configmap, filter_list):
         print("removing", leaf_node)
         # remove the key from the deepcopy
         if(len(leaf_node) == 1):
-            initial_configmap.pop(leaf_node[0])
+            try:
+                initial_configmap.pop(leaf_node[0], None)
+            except KeyError as k:
+                print("KeyError", k)
         elif(len(leaf_node) == 2):
-            initial_configmap[leaf_node[0]].pop(leaf_node[1])
+            try:
+                initial_configmap[leaf_node[0]].pop(leaf_node[1], None)
+            except KeyError as k:
+                print("KeyError", k)
         elif(len(leaf_node) == 3):
-            initial_configmap[leaf_node[0]][leaf_node[1]].pop(leaf_node[2])
+            try:
+                initial_configmap[leaf_node[0]][leaf_node[1]].pop(leaf_node[2], None)
+            except KeyError as k:
+                print("KeyError", k)
+
         elif(len(leaf_node) == 4):
-            initial_configmap[leaf_node[0]][leaf_node[1]][leaf_node[2]].pop(leaf_node[3])
+            try:
+                initial_configmap[leaf_node[0]][leaf_node[1]][leaf_node[2]].pop(leaf_node[3], None)
+            except KeyError as k:
+                print("KeyError", k)
         elif(len(leaf_node) == 5):
-            initial_configmap[leaf_node[0]][leaf_node[1]][leaf_node[2]][leaf_node[3]].pop(leaf_node[4])
+            try:
+                initial_configmap[leaf_node[0]][leaf_node[1]][leaf_node[2]][leaf_node[3]].pop(leaf_node[4], None)
+            except KeyError as k:
+                print("KeyError", k)
         else:
             print("Error: leaf node is too deep")
             assert False
  
+
+
+# main
+if __name__ == "__main__":
+    # create a tmp dir
+    import os
+    import shutil
+    import tempfile
+    tmp_dir = tempfile.mkdtemp()
+    print("tmp_dir:", tmp_dir)
+
+    # for every file in snapdir, load the configmap and remove the items in filter_list
+    snapdir = "snapdir"
+    for file in os.listdir(snapdir):
+        if file.endswith(".yaml"):
+            print("processing", file)
+            configmap = load_configmap(os.path.join(snapdir, file))
+            filter_list = load_configmap("configsync-ignore-list.yaml")
+            remove_items(configmap, filter_list)
+            with open(os.path.join(tmp_dir, file), "w") as f:
+                yaml.dump(configmap, f)
