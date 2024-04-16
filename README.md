@@ -25,6 +25,15 @@ gcloud container clusters get-credentials autopilot-cluster-1 --region us-centra
 ```bash
 source env/bin/activate
 
+mkdir /tmp/snapdir
+python src/filter_configmaps.py /tmp/snapdir
+
+```
 
 
+## 3. Snapshot downloaded configs
+
+```bash
+kosli snapshot server kubernetes-configurations \
+  --paths "/tmp/snapdir/*"
 ```

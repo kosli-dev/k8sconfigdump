@@ -62,9 +62,14 @@ do
     
     for configmap in $configmaps
     do
-        filename=$output_dir/$namespace.$configmap.yaml
-        echo Writing: $filename
-        kubectl get $crd_type -n $namespace -o yaml $configmap > $filename
+        configmap_json_filename=$output_dir/$namespace.$configmap.json
+        echo Writing: $configmap_json_filename
+        kubectl get $crd_type -n $namespace -o json $configmap > $configmap_json_filename
+
+        # sort the keys in the yaml file
+        tmp_file=$(mktemp)
+        mv $configmap_json_filename $tmp_file
+        jq -S . $tmp_file > $configmap_json_filename
     done
 done
 

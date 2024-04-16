@@ -1,3 +1,4 @@
+import json
 import yaml
 
 
@@ -6,7 +7,12 @@ def load_configmap(file_path):
     """Load a ConfigMap from a file"""
     with open(file_path, "r") as f:
         return yaml.safe_load(f)
-    
+
+def load_configmap_json(file_path):
+    """Load a ConfigMap from a file"""
+    with open(file_path, "r") as f:
+        return json.load(f)
+
 def visit_leaf_nodes(configmap, ctx=[]):
         '''Visit all leaf nodes of a nested dictionary  
             Return a list containing the path to the leaf node and its value
@@ -68,20 +74,31 @@ def remove_items(initial_configmap, filter_list):
 
 # main
 if __name__ == "__main__":
+
+    # get the output directory from the command line argument
+    import sys
+    output_dir = sys.argv[1]
+
     # create a tmp dir
     import os
     import shutil
     import tempfile
-    tmp_dir = tempfile.mkdtemp()
+    tmp_dir = output_dir
     print("tmp_dir:", tmp_dir)
 
     # for every file in snapdir, load the configmap and remove the items in filter_list
     snapdir = "snapdir"
     for file in os.listdir(snapdir):
-        if file.endswith(".yaml"):
+        if file.endswith(".json"):
             print("processing", file)
             configmap = load_configmap(os.path.join(snapdir, file))
             filter_list = load_configmap("configsync-ignore-list.yaml")
             remove_items(configmap, filter_list)
             with open(os.path.join(tmp_dir, file), "w") as f:
-                yaml.dump(configmap, f)
+                
+                json.dump(configmap, f, indent=2)
+                f.write("\n")
+                #yaml.dump(configmap, f)
+
+
+                
