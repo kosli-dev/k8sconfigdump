@@ -14,10 +14,10 @@
 gcloud container clusters get-credentials autopilot-cluster-1 --region us-central1 --project test-kubernetes-environment
 
 # Download Configmaps
-./download-configmaps.sh -o snapdir gamestore
+./1-download-configmaps.sh -o snapdir gamestore
 
 # Download CRDs
-./download-configmaps.sh -o snapdir -c gamestore
+./1-download-configmaps.sh -o snapdir -c gamestore
 ```
 
 ## 2. Filter configmaps

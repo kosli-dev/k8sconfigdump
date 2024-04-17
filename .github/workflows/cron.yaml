@@ -1,0 +1,30 @@
+name: Run every minute
+
+on:
+  schedule:
+    - cron: '* * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+        KOSLI_API_TOKEN: ${{ secrets.KOSLI_API_TOKEN_MEEKROSOFT }}
+        KOSLI_ORG: meekrosoft
+
+        
+    steps:
+
+    - name: setup kosli
+      uses: kosli-dev/setup-cli-action@v2
+      with:
+        version:
+          2.8.8
+
+    - uses: actions/checkout@v2
+
+    - name: Run a one-line script
+      run: |
+        echo "Hello, world!"
+        kosli --version
+        ./all.sh
