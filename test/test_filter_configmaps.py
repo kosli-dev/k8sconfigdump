@@ -2,7 +2,7 @@ import pytest
 from src import filter_configmaps, load_configmap, visit_leaf_nodes, remove_items
 
 def test_load_configmap():
-    configmap = load_configmap("./original-configmap.yaml")
+    configmap = load_configmap("./test/original-configmap.yaml")
     assert configmap["apiVersion"] == "v1"
     assert configmap["kind"] == "ConfigMap"
     assert configmap["metadata"]["name"] == "store-inventory"
@@ -86,7 +86,7 @@ def test_remove_items_in_configmap_that_are_in_filter_list():
 
 
 def test_filter_configmap():
-    downloaded_configmap = load_configmap("./downloaded-configmap.yaml")
+    downloaded_configmap = load_configmap("./test/downloaded-configmap.yaml")
     ignore_list = load_configmap("configsync-ignore-list.yaml")
     remove_items(downloaded_configmap, ignore_list)
     assert downloaded_configmap == {

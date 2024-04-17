@@ -37,3 +37,10 @@ python src/filter_configmaps.py /tmp/snapdir
 kosli snapshot server kubernetes-configurations \
   --paths "/tmp/snapdir/*"
 ```
+
+
+# Running the tests
+
+```bash
+pytest
+```
