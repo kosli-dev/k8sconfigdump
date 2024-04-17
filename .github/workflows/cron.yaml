@@ -42,7 +42,7 @@ jobs:
     # The KUBECONFIG env var is automatically exported and picked up by kubectl.
     - id: 'get-pods'
       run: 'kubectl get nodes'
-      
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -51,7 +51,9 @@ jobs:
         
     # You can test your matrix by printing the current Python version
     - name: Display Python version
-      run: python -c "import sys; print(sys.version)"
+      run: | 
+        python -c "import sys; print(sys.version)"
+        pip install -r requirements.txt
 
     - name: setup kosli
       uses: kosli-dev/setup-cli-action@v2
