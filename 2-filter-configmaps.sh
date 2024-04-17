@@ -7,7 +7,8 @@ set -e
 #
 # 
 
-source env/bin/activate
+# Need to have the env activated to run the python script:
+# source env/bin/activate
 
 rm -rf /tmp/snapdir
 mkdir -p /tmp/snapdir
