@@ -70,6 +70,5 @@ jobs:
         echo "Hello, world!"
         kosli version
         echo "Kosli is installed"
-        python3 -m venv env
         ./all.sh
 
