@@ -2,8 +2,12 @@ name: Run every minute
 
 on:
 
-    schedule:
-        - cron: '5 * * * *'
+    push:
+        branches:
+            - main
+
+    # schedule:
+    #     - cron: '5 * * * *'
 
     workflow_dispatch:
 
@@ -38,6 +42,16 @@ jobs:
     # The KUBECONFIG env var is automatically exported and picked up by kubectl.
     - id: 'get-pods'
       run: 'kubectl get nodes'
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        # Semantic version range syntax or exact version of a Python version
+        python-version: '3.x'
+        
+    # You can test your matrix by printing the current Python version
+    - name: Display Python version
+      run: python -c "import sys; print(sys.version)"
 
     - name: setup kosli
       uses: kosli-dev/setup-cli-action@v2
@@ -50,5 +64,6 @@ jobs:
         echo "Hello, world!"
         kosli version
         echo "Kosli is installed"
+        python3 -m venv env
         ./all.sh
 
