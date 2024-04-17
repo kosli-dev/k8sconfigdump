@@ -32,7 +32,7 @@ jobs:
         cluster_name: 'autopilot-cluster-1'
         location: 'us-central1'
         
-    - id: 'install kubectl'
+    - id: 'install-kubectl'
       uses: azure/setup-kubectl@v3
     
     # The KUBECONFIG env var is automatically exported and picked up by kubectl.
