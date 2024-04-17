@@ -1,8 +1,12 @@
 name: Run every minute
 
 on:
-  schedule:
-    - cron: '* * * * *'
+
+    schedule:
+        - cron: '5 * * * *'
+
+    workflow_dispatch:
+
 
 jobs:
   build:
