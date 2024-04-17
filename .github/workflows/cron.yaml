@@ -19,7 +19,25 @@ jobs:
         
     steps:
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v2'
+      with:
+        credentials_json: '${{ secrets.gcp_credentials }}'
+
+    - id: 'get-credentials'
+      uses: 'google-github-actions/get-gke-credentials@v2'
+      with:
+        cluster_name: 'autopilot-cluster-1'
+        location: 'us-central1'
+        
+    - id: 'install kubectl'
+      uses: azure/setup-kubectl@v3
+    
+    # The KUBECONFIG env var is automatically exported and picked up by kubectl.
+    - id: 'get-pods'
+      run: 'kubectl get nodes'
 
     - name: setup kosli
       uses: kosli-dev/setup-cli-action@v2
