@@ -1,0 +1,32 @@
+{
+  "apiVersion": "v1",
+  "data": {
+    "competitive": "140",
+    "cooperative": "30",
+    "single_player": "10"
+  },
+  "kind": "ConfigMap",
+  "metadata": {
+    "annotations": {
+      "config.k8s.io/owning-inventory": "gamestore_repo-sync",
+      "configmanagement.gke.io/managed": "enabled",
+      "configmanagement.gke.io/source-path": "config-sync-quickstart/multirepo/namespaces/gamestore/configmap-inventory-second.yaml",
+      "configmanagement.gke.io/token": "02bb7643b7cc1eb233e569e81b257121efa42f24",
+      "configsync.gke.io/declared-fields": "{\"f:data\":{\"f:competitive\":{},\"f:cooperative\":{},\"f:single_player\":{}},\"f:metadata\":{\"f:annotations\":{\"f:marketplace.com/comments\":{}},\"f:labels\":{\"f:app\":{}}}}",
+      "configsync.gke.io/git-context": "{\"repo\":\"https://github.com/kosli-dev/k8s-config-management-with-kosli\",\"branch\":\"main\",\"rev\":\"HEAD\"}",
+      "configsync.gke.io/manager": "gamestore",
+      "configsync.gke.io/resource-id": "_configmap_gamestore_store-inventory2",
+      "marketplace.com/comments": "What about dominoes?"
+    },
+    "creationTimestamp": "2024-04-12T21:54:35Z",
+    "labels": {
+      "app": "store",
+      "app.kubernetes.io/managed-by": "configmanagement.gke.io",
+      "configsync.gke.io/declared-version": "v1"
+    },
+    "name": "store-inventory2",
+    "namespace": "gamestore",
+    "resourceVersion": "20564860",
+    "uid": "4c45b651-3d63-45de-b6c6-0aa9103bd169"
+  }
+}

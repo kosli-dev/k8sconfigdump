@@ -1,0 +1,17 @@
+{
+  "apiVersion": "v1",
+  "data": {
+    "ca.crt": "-----BEGIN CERTIFICATE-----\nMIIELTCCApWgAwIBAgIRAL/ELOMPTW9ezOPEP2OG0g4wDQYJKoZIhvcNAQELBQAw\nLzEtMCsGA1UEAxMkZmY5ZWRhNWMtY2FlMC00YzNkLWFmZWYtY2QyMDkyNDA1Yzgy\nMCAXDTI0MDMyOTE0MTk0MVoYDzIwNTQwMzIyMTUxOTQxWjAvMS0wKwYDVQQDEyRm\nZjllZGE1Yy1jYWUwLTRjM2QtYWZlZi1jZDIwOTI0MDVjODIwggGiMA0GCSqGSIb3\nDQEBAQUAA4IBjwAwggGKAoIBgQCKNMo2dnp8tIHvC316UI9bpOyon1F/Wmj2rvYQ\nazKCneap+wkXjdBxw3pP8J3UhJFhu35zqvIA3KWGzamTfqCEwUOzyiJjeKqPeKnx\n0l2lsqqZijRcocNmMQhebszQt6TIIIUbDkYGfo/ZIti1fP/MTA23m2IPQ9ibXVL4\nKRXqDF/zlGACxfdsCE3sb84VN9dy7wjnm5Tw3lVM5pmo6BUybTKYfJpCp/yfZ3Rj\n/UtmeV3EQPi/+FiQLQWKEoiIjlHcTuCrnVbTAmrLJyqll0yG9YE2qRA6MwknmBNm\nqgr3VYSD4QZAvQ68Ou3eCqJBmKOQq7zFrVm27s0/+hb6VvA6gvo6HkA0qYl0Afzj\nGCg9v8bt0B3CM8JOWbKhh3glnd+PVqEOVs6j86cJNLSRy9yBMP/dHelaDt2svWs9\nTguh4EimVBb9bmFv54rqrHQyiwwodATpKVQUq3FqjQBXSt2mrsRvCEr8coTJdALJ\n74sDDebEH5Np9cK1Gy+MncMVkL8CAwEAAaNCMEAwDgYDVR0PAQH/BAQDAgIEMA8G\nA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFDwwkqrC1vK906gFfO6fHLT76m+AMA0G\nCSqGSIb3DQEBCwUAA4IBgQAYBV0JNCkvHEOT0V5SRHCMvLxUpM0wJhNwCPB39wi8\nxh+ALRkoygXnRn5d+/zLGagQe4BsJKJ+5vVgPQ6KOu5kwmy0FM/18PdnLTSvTafz\nbGuiEQnydembnf+QDLCL5YPK9I5Rs5sFtCcSiTFjQ+Y6/TXDNhBl31nYeEh3N0bq\nRNP1DV+nLT5VKVEiV9XHePmUKYkzhXmHEWA4NO25232GZBh9VwwdOgkVWGKPi0Ef\nQErytCcrgVjW/nRZc9/o1txAbGCtxjhLDXmrJYMK2GOeUWOFXCM1ekkLze9fdlAa\nsmTzpVEX8+LW/H8gyafsRj7iB2aHFgM3dxyL8QY1m1NPySy7IyWC7SnQ8GfDsOBm\nWB6mFeke5im6JgO5tpGxVXp/H4C5QWQdFpOCEQY6z98F3VdGgwdt6CE7D7jVrsh6\nT/1CkzHbu4NturxoBgOxNBCOFfoa/knAGBcGlGbTz3xZXqUcq/aN1wj8jzu9Far6\n4zmsUvy5/rCWoVDh/W3NAIA=\n-----END CERTIFICATE-----\n"
+  },
+  "kind": "ConfigMap",
+  "metadata": {
+    "annotations": {
+      "kubernetes.io/description": "Contains a CA bundle that can be used to verify the kube-apiserver when using internal endpoints such as the internal service IP or kubernetes.default.svc. No other usage is guaranteed across distributions of Kubernetes clusters."
+    },
+    "creationTimestamp": "2024-03-29T22:51:56Z",
+    "name": "kube-root-ca.crt",
+    "namespace": "gamestore",
+    "resourceVersion": "331958",
+    "uid": "2a0bb40e-589f-4b13-be62-d3341a5158e0"
+  }
+}
